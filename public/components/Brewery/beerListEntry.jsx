@@ -1,6 +1,8 @@
 import React from 'react';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 // import FlatButton from 'material-ui/FlatButton';
+import actions from '../../actions';
+import { connect } from 'react-redux';
 
 const styles = {
   card: {
@@ -17,10 +19,21 @@ class BeerListEntry extends React.Component {
     };
   }
 
+  selectVenue(venue, e) {
+    console.log('selectVenue invoked in beerListEntry');
+    e.preventDefault();
+    // console.log('selectVenue this.props.selectVenue(venue): ', this.props.selectVenue(venue));
+    console.log('this is the thing we are looking for', this.props)
+    this.props.selectVenue(venue)
+  }
+
   render() {
+    // <a onClick={this.selectVenue.bind(this, venue)} href='#'>{venue.name}</a>
+    // {(this.props.venue.selectedVenue) ? this.props.venue.selectedVenue.name : 'No Venue'}
     return (
       <Card>
-        <CardHeader
+        <CardHeader 
+          onClick={() => console.log('clicked')}
           title={this.props.beer.breweries[0].name}
           subtitle={this.props.beer.name}
           showExpandableButton={true}
@@ -61,7 +74,24 @@ class BeerListEntry extends React.Component {
   }
 }
 
-export default BeerListEntry;
+
+const stateToProps = (state) => {
+  return {
+    venue: state.venue
+  }
+}
+
+const dispatchToProps = (dispatch) => {
+  return {
+    selectVenue: (venue) => {
+      dispatch(actions.selectVenue(venue));
+    }
+  }
+}
+
+export default connect(stateToProps, dispatchToProps)(BeerListEntry);
+
+// export default BeerListEntry;
 
 // import React, { Component } from 'react';
 // import {
