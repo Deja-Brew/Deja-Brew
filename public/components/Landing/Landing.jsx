@@ -57,7 +57,7 @@ class Landing extends React.Component {
           <div className="grid">
             <div className="headerLeft headerLeftPrimary">
               <h1 className="header">DÉJÀ BREW</h1>
-              <h2 className="subHeader">YOUR SOURCE TO FIND BEERRRRrrRRRRRRR, BREWERIES, & MORE.</h2>
+              <h2 className="subHeader">YOUR SOURCE TO FIND BEER, BREWERIES, & MORE.</h2>
               <h3 className="subHeader">
                 Déjà Brew finds breweries on the map.<br/><br/>
                 Déjà Brew finds beer on the map.<br/><br/>
