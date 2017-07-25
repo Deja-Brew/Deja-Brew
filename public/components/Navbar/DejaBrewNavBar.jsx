@@ -44,8 +44,8 @@ class DejaBrewNavBar extends React.Component {
             onTouchTap={this.handleToggle.bind(this)}
           />
           <Drawer
+            disableSwipeToOpen={false}
             docked={false}
-            width={200}
             open={this.state.open}
             onRequestChange={(open) => this.setState({ open })}
           >
